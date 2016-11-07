@@ -49,47 +49,6 @@ app.get("/*", (req, res) => {
          res.end(new Error("You need to add a proper url").toString());
          else res.send({"error":"Wrong url format, make sure you have a valid protocol and real site."});
    }
-   // res.end(JSON.stringify(json,null,1));
-   //    if ((params[0] !== "https:" && params[0] !== "http:")) {
-   //       res.send({
-   //          "error": "Wrong url format, make sure you have a valid protocol and real site.",
-
-   //       });
-   //       return;
-   //    }
-   //    if (params[1] !== '') {
-   //       res.send("Eror");
-   //       return;
-   //    }
-   //    params = params[2].split(".");
-   //    if (params[0] !== "www") {
-   //       res.send({
-   //          "error": "Wrong url format, make sure you have a valid protocol and real site.",
-
-   //       });
-   //       return;
-   //    }
-   //    if(params[1]==""){
-   //        res.send({
-   //          "error": "Wrong url format, make sure you have a valid protocol and real site.",
-
-   //       });
-   //       return;
-   //    }
-   //    var url = params.join('.');
-
-   //    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-   //    var regex = new RegExp(expression);
-
-   //    if (!url.match(regex)) {
-   //       res.send({
-   //          "error": "Wrong url format, make sure you have a valid protocol and real site.",
-
-   //       });
-   //       return;
-   //    }
-
-   //  res.send(params);
 
 });
 app.listen(8080);
