@@ -29,14 +29,15 @@ app.get("/*", (req, res) => {
    var json = url.parse(params);
 
    var valid = require("validator");
+
+   data = {
+      number: rand,
+      link: json.href
+   };
    if (valid.isURL(json.href, {
          require_protocol: true
       })) {
-      var link = json.href;
-      data = {
-         number: rand,
-         link: link
-      };
+      // var link = json.href;
       id = data.number;
       res.send({
          "original_url": data.link,
@@ -44,7 +45,9 @@ app.get("/*", (req, res) => {
       });
    }
    else {
-      res.end(new Error("You need to add a proper url").toString());
+      if(data.link=="")
+         res.end(new Error("You need to add a proper url").toString());
+         else res.send({"error":"Wrong url format, make sure you have a valid protocol and real site."});
    }
    // res.end(JSON.stringify(json,null,1));
    //    if ((params[0] !== "https:" && params[0] !== "http:")) {
